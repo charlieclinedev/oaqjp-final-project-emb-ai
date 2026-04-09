@@ -28,5 +28,3 @@ def emotion_detector(text_to_analyze):
     emotion_scores_json['dominant_emotion'] = dominant_emotion
 
     return json.dumps(emotion_scores_json, indent=4)
-
-print(emotion_detector("I love this new technology"))

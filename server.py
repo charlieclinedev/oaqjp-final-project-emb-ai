@@ -13,6 +13,9 @@ def detect_emotion():
 
     response = emotion_detector(text_to_analyze)
 
+    if response['dominant_emotion'] is None:
+        return "Invalid text! Please try again!"
+
     output_string = f'For the given statement, the system response is ' \
     f"'anger': {response['anger']}, 'disgust': {response['disgust']}, " \
     f"'fear': {response['fear']}, 'joy': {response['joy']} and 'sadness': " \
@@ -24,6 +27,7 @@ def detect_emotion():
 @app.route("/")
 def render_index_page():
     return render_template('index.html')
+
 
 if __name__ == "__main__":
     app.run(debug=True)
